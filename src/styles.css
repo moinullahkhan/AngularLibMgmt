@@ -1,1 +1,70 @@
 /* You can add global styles to this file, and also import other style files */
+ body{
+            background:#f4f7fb;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        .navbar{
+            box-shadow:0 2px 10px rgba(0,0,0,.1);
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#0d6efd,#3b82f6);
+            color:white;
+            border-radius:15px;
+            padding:70px;
+            margin-top:30px;
+        }
+
+        .card-stat{
+            border:none;
+            border-radius:15px;
+            transition:.3s;
+            box-shadow:0 5px 15px rgba(0,0,0,.08);
+        }
+
+        .card-stat:hover{
+            transform:translateY(-5px);
+        }
+
+        .feature-card{
+            border:none;
+            border-radius:15px;
+            transition:.3s;
+            box-shadow:0 5px 15px rgba(0,0,0,.08);
+            height:100%;
+        }
+
+        .feature-card:hover{
+            background:#0d6efd;
+            color:white;
+        }
+
+        .feature-card:hover i{
+            color:white;
+        }
+
+        .feature-card i{
+            font-size:40px;
+            color:#0d6efd;
+        }
+
+        footer{
+            background:#1d3557;
+            color:white;
+            margin-top:60px;
+            padding:20px;
+        }
+
+        .announcement{
+            background:white;
+            border-left:5px solid #0d6efd;
+            border-radius:10px;
+            padding:15px;
+            margin-bottom:15px;
+            box-shadow:0 3px 10px rgba(0,0,0,.08);
+        }
+
+        .table{
+            background:white;
+        }
