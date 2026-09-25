@@ -1,4 +1,4 @@
-<div class="table-responsive">
+ <div class="table-responsive">
 
                 <table class="table table-hover table-striped align-middle mb-0">
 
@@ -17,7 +17,13 @@
                         <tr>
                             <td>{{item.id}}</td>
                             <td  [innerHTML]="item.firstName + ' ' + item.lastName"></td>
-                            <td>{{item.subject}}</td>
+                            <td>
+                                <span class="badge "  [class.bg-secondary]="item.age< 30" 
+                                    [class.bg-primary]="item.age>=30 && item.age < 40" 
+                                    [class.bg-success]="item.age>=40"
+                                     [textContent]="item.age">
+                                </span>
+                            </td>
                             <td>
                                 <button class="btn btn-sm btn-outline-info">
                                     <i class="bi bi-eye"></i>

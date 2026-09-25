@@ -24,7 +24,8 @@ export class LoginComponent {
     const userStr=ele.value;
     const password=this.passwordEle.nativeElement.value;
 
-    if(userStr==='moin' || password==='khan'){
+    if(userStr==='moin' && password==='khan'){
+       localStorage.setItem("User", userStr);
       this.router.navigateByUrl('/dashboard');
     }
     else{

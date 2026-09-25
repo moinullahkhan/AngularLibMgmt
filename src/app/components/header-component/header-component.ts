@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   imports: [],
@@ -6,4 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './header-component.css',
   templateUrl: './header-component.html',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  router = inject(Router);
+  
+   logout(){
+    localStorage.clear();
+   this.router.navigateByUrl('/login');
+  }
+}
