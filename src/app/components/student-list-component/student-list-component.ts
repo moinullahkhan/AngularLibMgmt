@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Utility } from '../../utilities/utility';
+import { UserService } from '../../services/user-service';
+import { StudentService } from '../../services/student-service';
+import { HttpApiHandler } from '../../commonlib/http-api-handler';
 
 @Component({
   imports: [],
@@ -7,7 +10,16 @@ import { Utility } from '../../utilities/utility';
   styleUrl: './student-list-component.css',
   templateUrl: './student-list-component.html',
 })
-export class StudentListComponent {
+export class StudentListComponent implements OnInit{
+     users: Array<any> = [];
+     ngOnInit(): void {
+      this.users = this.studentService.getStudents();
+    }
+    
+     constructor(private studentService: StudentService){
+
+  }
+    
    direction = -1;
    sortData(columnName: string)
    {
@@ -15,43 +27,7 @@ export class StudentListComponent {
      Utility.sortData(this.users, columnName,this.direction);
    }
 
-  users=[
-    {
-      id: 1001,
-      firstName : 'Ashwini',
-      lastName : 'kokane',
-      gender: 'F',
-      subject: 'Java'
-    },
-    {
-      id: 1003,
-      firstName : 'Manish',
-      lastName : 'Verma',
-      gender: 'M',
-      subject: 'Python'
-    },
-     {
-      id: 1002,
-      firstName : 'Sumit',
-      lastName : 'Joshi',
-      gender: 'M',
-      subject: 'Oracle'
-    },
-    {
-      id: 1004,
-      firstName : 'Varsha',
-      lastName : 'changude',
-      gender: 'F',
-      subject: 'SQL Server'
-    },
-    {
-      id: 1005,
-      firstName : 'Moin',
-      lastName : 'Khan',
-      gender: 'M',
-      subject: 'Node'
-    },
-  ]
+  
 
    columnList = [
     {displayName: 'User ID', columnName: 'id'},

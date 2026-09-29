@@ -1,0 +1,30 @@
+<br/>
+<input type="text" #a />
+<input type="text" #b /> 
+
+<button type="button" (click)="calc(a.value, b.value)">=</button>
+
+<span> {{result}}</span> 
+
+<br/>
+<div class="red">{{message}}</div>
+
+<div>{{timeShowPromise()}}</div>
+
+<br/>
+
+<div>{{timeShowCallBack()}}</div>
+
+<br/>
+
+<div>{{timeShowObs()}}</div>
+
+<button type="button" (click)="showTime()">Show Time </button> 
+
+<button type="button" (click)="showTimeCallBack()">Show Time CallBack </button>
+
+<button type="button" (click)="showTimeCallObs()">Show Time Obs </button>
+
+<button type="button" (click)="showInterval()">Show Interval </button>
+
+<button type="button" (click)="showOf()">Show Of </button>

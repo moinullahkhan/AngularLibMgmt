@@ -10,6 +10,7 @@ import { LoginTemplateDrivenForm } from './components/login-template-driven-form
 import { LoginReactiveComponent } from './components/login-reactive-component/login-reactive-component';
 import { UserList } from './components/user-list/user-list';
 import { StudentListComponent } from './components/student-list-component/student-list-component';
+import { Maths } from './components/maths/maths';
 
 export const routes: Routes = [
     {
@@ -32,6 +33,7 @@ export const routes: Routes = [
     path: '', component: PortalLayout, canActivateChild :[authChildGuard],
 
     children: [
+        
         {path:'', component: DashboardComponent},
 
         {path:'dashboard', component: DashboardComponent},
@@ -41,6 +43,8 @@ export const routes: Routes = [
         {path: 'students', component: StudentListComponent},
 
         {path:'home', component: HomeComponent},
+
+        {path: 'math', component: Maths},
 
     ]
 }

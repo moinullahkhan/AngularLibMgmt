@@ -1,16 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { Utility } from '../../utilities/utility';
+import { HttpApiHandler } from '../../commonlib/http-api-handler';
+import { UserService } from '../../services/user-service';
+import { StudentService } from '../../services/student-service';
 
 @Component({
   imports: [],
   selector: 'stu-user-list',
   styleUrl: './user-list.css',
   templateUrl: './user-list.html',
+ // providers: [UserService]
+  viewProviders: [StudentService, UserService]
 })
 export class UserList implements OnInit {
+   userService!: UserService; //= new UserService(); //compostion 
+   studentService!: StudentService; // = new StudentService();
+
+   constructor(userService: UserService, studentService: StudentService)
+   {
+        this.userService = userService;
+        this.studentService = studentService;
+        debugger;
+   }
+   
+   users: Array<any> = [];
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+     this.users = this.userService.getUsers();
   }
+
    direction = -1;
    sortData(columnName: string)
    {
@@ -18,43 +35,7 @@ export class UserList implements OnInit {
      Utility.sortData(this.users, columnName,this.direction);
    }
 
-  users=[
-    {
-      id: 1001,
-      firstName : 'Ashwini',
-      lastName : 'kokane',
-      gender: 'F',
-      age: 32
-    },
-    {
-      id: 1003,
-      firstName : 'Manish',
-      lastName : 'Verma',
-      gender: 'M',
-      age: 30
-    },
-     {
-      id: 1002,
-      firstName : 'Sumit',
-      lastName : 'Joshi',
-      gender: 'M',
-      age: 42
-    },
-    {
-      id: 1004,
-      firstName : 'Varsha',
-      lastName : 'changude',
-      gender: 'F',
-      age: 21
-    },
-    {
-      id: 1005,
-      firstName : 'Moin',
-      lastName : 'Khan',
-      gender: 'M',
-      age: 45
-    },
-  ]
+ 
 
    columnList = [
     {displayName: 'User ID', columnName: 'id'},
