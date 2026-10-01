@@ -3,9 +3,10 @@ import { Utility } from '../../utilities/utility';
 import { HttpApiHandler } from '../../commonlib/http-api-handler';
 import { UserService } from '../../services/user-service';
 import { StudentService } from '../../services/student-service';
+import { QuickGrid } from '../../commonlib/quick-grid/quick-grid';
 
 @Component({
-  imports: [],
+  imports: [QuickGrid],
   selector: 'stu-user-list',
   styleUrl: './user-list.css',
   templateUrl: './user-list.html',
@@ -42,5 +43,10 @@ export class UserList implements OnInit {
     {displayName: 'User Name', columnName: 'firstName'},
     {displayName: 'User Age', columnName: 'age'}
   ]
-
+  
+   actionColumnList=[
+    {type: 'view', isShow: true},
+    {type: 'edit', isShow: true},
+    {type: 'delete', isShow: true},
+  ]
 }

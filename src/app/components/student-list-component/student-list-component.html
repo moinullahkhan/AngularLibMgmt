@@ -1,39 +1,21 @@
-<div class="table-responsive">
 
-                <table class="table table-hover table-striped align-middle mb-0">
 
-                    <thead class="table-light">
-                        <tr>
-                           @for (item of columnList; track $index) {
-                                    <th (click)="sortData(item.columnName)">{{item.displayName}}</th>
-                            }
-                            <th width="180">Actions</th>
-                        </tr>
-                    </thead>
+            <stu-quick-grid [columnList]="columnList" (actionCLickEvent)="eve($event)"
+            [actionColumnList]="actionColumnList" [data]="users()"></stu-quick-grid>
 
-                    <tbody>
+           
+            @if(isShowEditPopup)
+            {
+            <stu-quick-popup [message]="message" (closeEvent)="close()">
+                <stu-student-edit></stu-student-edit>
+            </stu-quick-popup>
+            }
 
-                        @for (item of users; track item.id) {
-                        <tr>
-                            <td>{{item.id}}</td>
-                            <td  [innerHTML]="item.firstName + ' ' + item.lastName"></td>
-                            <td>{{item.subject}}</td>
-                            <td>
-                                <button class="btn btn-sm btn-outline-info">
-                                    <i class="bi bi-eye"></i>
-                                </button>
+            @if(isShowDeletePopup)
+            {
+              <stu-quick-popup [message]="message" (closeEvent)="closeDelete()">
+                
+              </stu-quick-popup>
+            }
 
-                                <button class="btn btn-sm btn-outline-warning">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-
-                                <button class="btn btn-sm btn-outline-danger">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-
-                        }
-                    </tbody>
-                </table>
-            </div>
+         

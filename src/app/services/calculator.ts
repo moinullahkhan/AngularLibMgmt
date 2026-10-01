@@ -1,18 +1,26 @@
 import { Service } from '@angular/core';
-import { Observable, Observer } from 'rxjs';
+import { BehaviorSubject, Observable, Observer, Subject } from 'rxjs';
 
 @Service()
 export class Calculator {
 
     ofMy(...args: any)
     {
-        
-       // let args = arguments;
-          debugger;
+
          return new Observable((obs: Observer<any>)=>{
                 for (let index = 0; index < args.length; index++) {
                         const element = args[index];
-                        obs.next(element);
+                        if(element == 13)
+                        {
+                            obs.error(element);
+                        }
+                        else if(element==30){
+                              obs.next(element);
+                              obs.complete();   
+                        }
+                        else {
+                             obs.next(element);
+                        }
                 }
         })
     }
@@ -26,13 +34,13 @@ export class Calculator {
                 });
         }
 
+    //   public subject$= new Subject<any>(); 
+         public subject$= new BehaviorSubject<any>(new Date());
+         
      showTimeWithObs(){
-        return new Observable((obj: Observer<any>)=>{
-                setInterval(()=>{
-                        obj.next(new Date());
-                },2000)
-
-        });
+           setInterval(()=>{
+                    this.subject$.next(new Date());
+            },1000)
     }
         
      showTimeWithCallBack(succ: any){

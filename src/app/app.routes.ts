@@ -11,6 +11,7 @@ import { LoginReactiveComponent } from './components/login-reactive-component/lo
 import { UserList } from './components/user-list/user-list';
 import { StudentListComponent } from './components/student-list-component/student-list-component';
 import { Maths } from './components/maths/maths';
+import { StudentView } from './components/student-view/student-view';
 
 export const routes: Routes = [
     {
@@ -40,7 +41,10 @@ export const routes: Routes = [
 
         {path: 'users', component: UserList },
 
-        {path: 'students', component: StudentListComponent},
+         {path: 'student', children:[
+            {path: 'list', component: StudentListComponent},
+            {path:'view', component: StudentView},
+        ]},
 
         {path:'home', component: HomeComponent},
 

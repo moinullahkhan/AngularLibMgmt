@@ -1,8 +1,12 @@
-import { Service } from '@angular/core';
+import { Injectable, Service } from '@angular/core';
 import { HttpApiHandler } from '../commonlib/http-api-handler';
 import { IApiHandler } from '../commonlib/IHttp';
+import { AjaxApiHandler } from '../commonlib/ajax-api-handler';
+import { StudentDto } from '../models/Students';
 
-@Service()
+@Injectable({
+  providedIn: 'root'
+})
 export class StudentService {
 
 //httpApi: HttpApiHandler = new HttpApiHandler();
@@ -11,47 +15,12 @@ export class StudentService {
                 this.httpApi = httpApi;
         }
 
-
-    users=[
-    {
-      id: 1001,
-      firstName : 'Ashwini',
-      lastName : 'kokane',
-      gender: 'F',
-      subject: 'Java'
-    },
-    {
-      id: 1003,
-      firstName : 'Manish',
-      lastName : 'Verma',
-      gender: 'M',
-      subject: 'Python'
-    },
-     {
-      id: 1002,
-      firstName : 'Sumit',
-      lastName : 'Joshi',
-      gender: 'M',
-      subject: 'Oracle'
-    },
-    {
-      id: 1004,
-      firstName : 'Varsha',
-      lastName : 'changude',
-      gender: 'F',
-      subject: 'SQL Server'
-    },
-    {
-      id: 1005,
-      firstName : 'Moin',
-      lastName : 'Khan',
-      gender: 'M',
-      subject: 'Node'
-    },
-  ]
+        constructor(private ajax: HttpApiHandler){
+           
+        }
 
     getStudents(){  
-       return this.users;
+       return this.ajax.getApi<Array<StudentDto>>('http://localhost:3000/api/students');
     }
 
     AddUsers(){
