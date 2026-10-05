@@ -33,7 +33,7 @@ export class LoginReactiveComponent {
   showMessage: boolean = false;
   Submit(userForm : FormGroup)
   {
-    debugger;
+  
      if(userForm.invalid)
      {
        this.showMessage = true;
@@ -43,7 +43,6 @@ export class LoginReactiveComponent {
   }
 
   addValidation(userForm: FormGroup){
-    debugger;
     const passEle=userForm.controls!['password'];
     passEle.clearValidators();
     passEle.addValidators([Validators.required, Validators.minLength(4)])
@@ -52,7 +51,6 @@ export class LoginReactiveComponent {
   } 
   
   removeValidation(userForm: FormGroup){
-    debugger;
     const passEle = userForm.controls!['password'];
     passEle.clearValidators();
     passEle.markAsPristine();

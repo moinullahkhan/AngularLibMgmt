@@ -1,4 +1,6 @@
 
+           
+            <input type="text" stuValidateAge [value]="age" />
 
             <stu-quick-grid [columnList]="columnList" (actionCLickEvent)="eve($event)"
             [actionColumnList]="actionColumnList" [data]="users()"></stu-quick-grid>
@@ -6,8 +8,9 @@
            
             @if(isShowEditPopup)
             {
-            <stu-quick-popup [message]="message" (closeEvent)="close()">
-                <stu-student-edit></stu-student-edit>
+            <stu-quick-popup [message]="message" [isShowFooter]=false (closeEvent)="close()">
+              <div title >Student Edit</div>
+                <stu-student-edit content [data]="studentRow"></stu-student-edit>
             </stu-quick-popup>
             }
 

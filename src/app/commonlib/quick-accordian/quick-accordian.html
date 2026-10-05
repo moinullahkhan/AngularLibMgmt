@@ -1,0 +1,20 @@
+<div class="accordion" id="accordionExample">
+  @for(item of accordianList;track $index)
+  {
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button"
+      (click)="show(item)" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        {{item.header}}
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" [class.show]="item.isShow" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+         <ng-container *ngTemplateOutlet="item.temp">
+
+        </ng-container>
+      </div>
+    </div>
+  </div>
+}
+</div>

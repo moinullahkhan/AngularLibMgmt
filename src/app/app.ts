@@ -18,7 +18,7 @@ export class App {
    isSHowHeader=false;
 
   constructor(){
-    debugger;
+    
     if(window.location.pathname=='/login'){
       this.isSHowHeader=false;
     }else {

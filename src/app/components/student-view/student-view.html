@@ -1,1 +1,22 @@
-<p>student-view works!</p>
+<button type="button" (click)="changeoneAtAtaTime()">changeoneAtAtaTime()</button>
+@if(isOneAtAtime)
+{
+<stu-quick-accordian>
+    <ng-template stuQuickAccordianDirective  header="First" [isShow]="true">
+        <div>First Panel</div>
+        <input type="text"/>
+    </ng-template>
+     <ng-template stuQuickAccordianDirective  header="Second" [isAlwaysShow]="true" [isShow]="false">
+        <div>Second Panel</div>
+    </ng-template>
+     <ng-template stuQuickAccordianDirective  header="Third" [isShow]="true">
+        <div>Third Panel</div>
+    </ng-template>
+     <ng-template stuQuickAccordianDirective  header="Student Edit">
+        <div>Third Panel</div>
+    </ng-template>
+     <ng-template stuQuickAccordianDirective  header="Student Detail">
+        <div>Third Panel</div>
+    </ng-template>
+</stu-quick-accordian>
+}

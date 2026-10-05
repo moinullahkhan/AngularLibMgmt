@@ -20,7 +20,7 @@ export class LoginComponent {
 
   Submit(ele : HTMLInputElement)
   {
-     debugger;
+    
     const userStr=ele.value;
     const password=this.passwordEle.nativeElement.value;
 

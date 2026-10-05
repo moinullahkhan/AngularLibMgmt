@@ -12,6 +12,8 @@ import { UserList } from './components/user-list/user-list';
 import { StudentListComponent } from './components/student-list-component/student-list-component';
 import { Maths } from './components/maths/maths';
 import { StudentView } from './components/student-view/student-view';
+import { DepartmentComponent } from './components/department-component/department-component';
+import { TeacherComponent } from './components/teacher-component/teacher-component';
 
 export const routes: Routes = [
     {
@@ -38,6 +40,10 @@ export const routes: Routes = [
         {path:'', component: DashboardComponent},
 
         {path:'dashboard', component: DashboardComponent},
+
+         {path:'dept', component: DepartmentComponent},
+
+         {path:'tech', component: TeacherComponent},
 
         {path: 'users', component: UserList },
 

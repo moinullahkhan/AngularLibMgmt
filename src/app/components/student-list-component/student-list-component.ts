@@ -8,9 +8,10 @@ import { QuickGrid } from '../../commonlib/quick-grid/quick-grid';
 import { Router } from '@angular/router';
 import { QuickPopup } from '../../commonlib/quick-popup/quick-popup';
 import { StudentEdit } from '../student-edit/student-edit';
+import { ValidateAge } from '../../directives/validate-age';
 
 @Component({
-  imports: [QuickGrid, QuickPopup, StudentEdit],
+  imports: [QuickGrid, QuickPopup, StudentEdit, ValidateAge],
   selector: 'stu-student-list-component',
   styleUrl: './student-list-component.css',
   templateUrl: './student-list-component.html',
@@ -30,6 +31,7 @@ export class StudentListComponent implements OnInit{
     isShowEditPopup = false;
     isShowDeletePopup = false;
     message = "Do you really want to delete?"
+    studentRow: any;
 
    close()
    {
@@ -39,17 +41,17 @@ export class StudentListComponent implements OnInit{
    closeDelete(){
     this.isShowDeletePopup = false;
   }
-
+  age=52;
   eve(eventObj: any)
   {
     if(eventObj.action.type == "view")
     {
       this.router.navigateByUrl('/student/view');
     }
-    
     if(eventObj.action.type == "edit")
     {
       this.isShowEditPopup = true;
+      this.studentRow = eventObj.row;
     }
 
     if(eventObj.action.type == "delete")

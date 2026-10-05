@@ -21,7 +21,6 @@ export class UserList implements OnInit {
    {
         this.userService = userService;
         this.studentService = studentService;
-        debugger;
    }
    
    users: Array<any> = [];

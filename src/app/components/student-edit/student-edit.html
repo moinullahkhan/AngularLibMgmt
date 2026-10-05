@@ -1,5 +1,23 @@
-<p>student-edit works!</p>
 
+{{ studentData() | json}}
 <input type="text" [value]="name"  />
 
 <button type="button">Click</button>
+
+
+<form>
+
+    <input [formField]="studentDataForm.firstName" />
+
+    @if(isException())
+    {
+        <div>Please enter first name.</div>
+    }
+
+    @if(studentDataForm.firstName().getError('minLength')){
+
+        <div>Please enter at least 2 characters</div>
+    }
+
+     <button type="button" (click)="show()">Show</button>
+</form>

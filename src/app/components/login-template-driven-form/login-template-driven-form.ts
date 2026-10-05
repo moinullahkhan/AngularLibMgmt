@@ -36,7 +36,6 @@ export class LoginTemplateDrivenForm {
   }
 
   addValidation(userForm: NgForm){
-    debugger;
     const passEle=userForm.controls!['password'];
     passEle.clearValidators();
     passEle.addValidators([Validators.required, Validators.minLength(4)])
@@ -45,7 +44,6 @@ export class LoginTemplateDrivenForm {
   } 
   
   removeValidation(userForm: NgForm){
-    debugger;
     const passEle = userForm.controls!['password'];
     passEle.clearValidators();
     passEle.markAsPristine();
